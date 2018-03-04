@@ -25,14 +25,25 @@
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
     <!-- 配置dubbo服务 -->
     <dubbo:application name="taotao-manage-web"/>
 
     <!-- 使用广播； -->
-    <dubbo:registry address="multicast://224.5.6.7:1234"/>
+    <!--<dubbo:registry address="multicast://224.5.6.7:1234"/>-->
+
+    <!--使用zookeeper注册中心-->
+    <dubbo:registry protocol="zookeeper" address="192.168.12.168:2181"/>
 
     <!-- 声明要调用的服务，timeout是设置连接超时最长时间,如果不设置，超时时间默认是3秒 -->
-    <dubbo:reference interface="com.taotao.service.TestService"
+    <!--使用直连方式-->
+    <!--<dubbo:reference interface="TestService"
+                     id="testService" timeout="1000000" url="dubbo://127.0.0.1:20880"/>-->
+
+    <!--使用zookeeper注册中心-->
+    <dubbo:reference interface="com.taotao.manage.service.TestService"
                      id="testService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manage.service.ItemCatService"
+                     id="itemCatService" timeout="1000000"/>
 
 </beans>

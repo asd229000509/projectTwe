@@ -1,6 +1,6 @@
 package com.taotao.manage.controller;
 
-import com.taotao.service.TestService;
+import com.taotao.manage.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

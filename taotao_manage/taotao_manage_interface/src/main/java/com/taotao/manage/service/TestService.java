@@ -1,4 +1,4 @@
-package com.taotao.service;
+package com.taotao.manage.service;
 
 public interface TestService {
 
