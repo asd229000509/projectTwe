@@ -1,15 +1,13 @@
 package com.taotao.manage.controller.impl;
 
 import com.taotao.manage.pojo.ItemCat;
+import com.taotao.manage.pojo.ItemDesc;
 import com.taotao.manage.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -47,13 +45,30 @@ public class ItemCatController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<ItemCat>> queryItemCatListParentId(
-            @RequestParam(value = "id", defaultValue = "0")Long parentId) {
+            @RequestParam(value = "id", defaultValue = "0") Long parentId) {
         try {
             //调用服务层对象查询对象
             ItemCat itemCat = new ItemCat();
             itemCat.setParentId(parentId);
             List<ItemCat> itemCats = itemCatService.queryListByWhere(itemCat);
             return ResponseEntity.ok(itemCats);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    /**
+     * 根据商品类目id 获取商品类目
+     * url:'/rest/item/desc/'+data.id
+     * @param itemCatId 商品id
+     * @return
+     */
+    @RequestMapping(value = "/{itemCatId}",method = RequestMethod.GET)
+    public ResponseEntity<ItemCat> queryItemCatById(@PathVariable("itemCatId") Long itemCatId) {
+        try {
+            ItemCat itemCat = itemCatService.queryById(itemCatId);
+            return ResponseEntity.ok(itemCat);
         } catch (Exception e) {
             e.printStackTrace();
         }
