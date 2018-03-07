@@ -54,7 +54,7 @@
 	        <tr class="params hide">
 	        	<td>商品规格:</td>
 	        	<td>
-	        		
+
 	        	</td>
 	        </tr>
 	    </table>
@@ -68,11 +68,11 @@
 <script type="text/javascript">
 	//编辑器参数
 	kingEditorParams = {
-		filePostName  : "uploadFile",   
-		uploadJson : '/rest/pic/upload',	
-		dir : "image" 
+		filePostName  : "uploadFile",
+		uploadJson : '/rest/pic/upload',
+		dir : "image"
 	};
-	
+
 	var itemAddEditor ;
 	$(function(){
 		//创建富文本编辑器
@@ -82,7 +82,7 @@
 		//初始化图片上传
 		initPicUpload();
 	});
-	
+
 	//提交商品信息到后台
 	function submitForm(){
 		//校验表单
@@ -92,7 +92,7 @@
 		}
 		$("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
 		itemAddEditor.sync();
-				
+
 		//提交到后台的RESTful
 		$.ajax({
 		   type: "POST",
@@ -106,25 +106,30 @@
 		   }
 		});
 	}
-	
+
 	function clearForm(){
 		$('#itemAddForm').form('reset');
 		itemAddEditor.html('');
 	}
-	
+
 	//类目选择初始化
 	function initItemCat(){
+	    //选取标签的class的值为SelectItemCat的那些元素--a
 		var selectItemCat = $(".selectItemCat");
+		//对上面的选择标签注册点击事件
    		selectItemCat.click(function(){
+   		    //创建div标签并设置其内边距为5px,并设置其内容为一个ul,最后将div渲染为easy ui window
    			$("<div>").css({padding:"5px"}).html("<ul>")
    			.window({
    				width:'500',
    			    height:"450",
-   			    modal:true,
+   			    modal:true, //模式化窗口
    			    closed:true,
    			    iconCls:'icon-save',
    			    title:'选择类目',
-   			    onOpen : function(){
+                //在打开面板之后触发
+   			    onOpen : function(){ //
+                    //this表示当前的easyUi window ---div
    			    	var _win = this;
    			    	$("ul",_win).tree({
    			    		url:'/rest/item/cat',
@@ -146,7 +151,7 @@
    			}).window('open');
    		});
     }
-	
+
 	//图片上传初始化
 	function initPicUpload(){
        	$(".picFileUpload").click(function(){
@@ -168,5 +173,5 @@
        		});
        	});
 	}
-	
+
 </script>

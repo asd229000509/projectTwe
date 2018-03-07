@@ -1,4 +1,4 @@
-package com.taotao.manage.controller;
+package com.taotao.manage.controller.impl;
 
 import com.taotao.manage.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;

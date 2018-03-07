@@ -6,11 +6,12 @@ import com.taotao.manage.mapper.ItemCatMapper;
 import com.taotao.manage.pojo.ItemCat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Service
-public class ItemCatServiceImpl implements ItemCatService  {
+public class ItemCatServiceImpl extends BaseServiceImpl<ItemCat> implements ItemCatService  {
 
     @Autowired
     private ItemCatMapper itemCatMapper;
@@ -23,4 +24,8 @@ public class ItemCatServiceImpl implements ItemCatService  {
         List<ItemCat> lists = itemCatMapper.selectAll();
         return lists;
     }
+
+
+
+
 }
