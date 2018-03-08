@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Date;
@@ -101,4 +102,28 @@ public class ItemServiceImpl extends BaseServiceImpl<Item> implements ItemServic
         //返回DataGridResult
         return new DataGridResult(pageInfo.getTotal(), pageInfo.getList());
     }
+
+    /**
+     * 修改Status状态
+     * @param itemIds 商品id集合
+     * @param status 要修改的状态
+     */
+    @Override
+    public void updateItemStatusByIds(String itemIds,Integer status) {
+        String[] ids = itemIds.split(",");
+        if (StringUtils.isNotBlank(itemIds)){
+            for (String id : ids) {
+                Item item = new Item();
+                item.setId(Long.parseLong(id));
+                item.setStatus(status);
+                //修改商品状态
+                itemMapper.updateByPrimaryKeySelective(item);
+            }
+        }
+
+
+    }
+
+
+
 }

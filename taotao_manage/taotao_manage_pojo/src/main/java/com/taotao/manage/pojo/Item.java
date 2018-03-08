@@ -35,7 +35,7 @@ public class Item extends BasePojo {
     private Long cid;
 
     @Column
-    private Integer status;
+    private Integer status; //1:正常,2:下架
 
     public Long getId() {
         return id;

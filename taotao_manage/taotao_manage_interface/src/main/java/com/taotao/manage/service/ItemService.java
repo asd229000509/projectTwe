@@ -28,4 +28,14 @@ public interface ItemService extends BaseService<Item>{
      * @return dataGrid插件需要的分页显示数据
      */
     DataGridResult queryItemListByTitle(String title, Integer page, Integer rows);
+
+
+    /**
+     * 修改Status状态
+     * @param itemIds 商品id集合
+     * @param status 要修改的状态
+     */
+    void updateItemStatusByIds(String itemIds,Integer status);
+
+
 }

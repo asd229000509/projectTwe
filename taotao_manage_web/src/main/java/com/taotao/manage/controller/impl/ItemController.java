@@ -11,26 +11,68 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Serializable;
+
 @RequestMapping("/item")
 @Controller
 public class ItemController {
     @Autowired
     private ItemService itemService;
 
-    //TODO 删除
-    //TODO 上架
-    //TODO 下架
 
+    @RequestMapping("/delete")
+    public ResponseEntity<Void> deleteItemByIds(@RequestParam("ids") Long[] itemIds) {
+        try {
+            itemService.deleteByIds(itemIds);
+            return ResponseEntity.ok(null);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    /**
+     * 商品上架
+     * @param itemIds 商品id集合
+     * @return 返回状态码
+     */
+    @RequestMapping("/reshelf")
+    public ResponseEntity<Void> reshelf(@RequestParam("ids") String itemIds) {
+        try {
+
+            itemService.updateItemStatusByIds(itemIds,1);
+            return ResponseEntity.ok(null);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    /**
+     * 商品下架
+     * @param itemIds 商品id 集合
+     * @return 返回状态码
+     */
+    @RequestMapping("/instock")
+    public ResponseEntity<Void> instock(@RequestParam("ids") String itemIds) {
+        try {
+            itemService.updateItemStatusByIds(itemIds,2);
+            return ResponseEntity.ok(null);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
     /**
      * 增加
      * url:'/rest/item',method:'post'
      *
-     * @param item
+     * @param item 商品的对象
      * @param desc
-     * @return
+     * @return 返回状态码
      */
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> savaItem(
+    public ResponseEntity<Void> savItem(
             Item item, @RequestParam(value = "desc", required = false) String desc) {
         try {
             itemService.saveItem(item, desc);
@@ -48,7 +90,7 @@ public class ItemController {
      *
      * @param item
      * @param desc
-     * @return
+     * @return 返回状态码
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResponseEntity<Void> updateItem(
@@ -68,7 +110,7 @@ public class ItemController {
      * @param title
      * @param page
      * @param rows
-     * @return
+     * @return 返回dataGrid需要的分页信息
      */
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<DataGridResult> queryItemList(
