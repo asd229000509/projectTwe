@@ -45,7 +45,7 @@
     <!--使用直连方式-->
     <!--<dubbo:reference interface="TestService"
                      id="testService" timeout="1000000" url="dubbo://127.0.0.1:20880"/>-->
-
+    
     <!--使用zookeeper注册中心-->
     <dubbo:reference interface="com.taotao.manage.service.TestService"
                      id="testService" timeout="1000000"/>
@@ -55,4 +55,8 @@
                      id="itemService" timeout="1000000"/>
     <dubbo:reference interface="com.taotao.manage.service.ItemDescService"
                      id="itemDescService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manage.service.ContentCategoryService"
+                     id="contentCategoryService" timeout="1000000"/>
+    <dubbo:reference interface="com.taotao.manage.service.ContentService"
+                     id="contentService" timeout="1000000"/>
 </beans>

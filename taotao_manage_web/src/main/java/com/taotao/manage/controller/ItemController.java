@@ -1,17 +1,14 @@
-package com.taotao.manage.controller.impl;
+package com.taotao.manage.controller;
 
 
 import com.taotao.commom.vo.DataGridResult;
 import com.taotao.manage.pojo.Item;
-import com.taotao.manage.pojo.ItemDesc;
 import com.taotao.manage.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.Serializable;
 
 @RequestMapping("/item")
 @Controller

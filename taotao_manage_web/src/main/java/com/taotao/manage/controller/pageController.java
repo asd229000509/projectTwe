@@ -1,4 +1,4 @@
-package com.taotao.manage.controller.impl;
+package com.taotao.manage.controller;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
