@@ -50,7 +50,7 @@
     </bean>
 
     <!--单机版redis-->
-    <bean id="redisPoolService" class="com.taotao.commom.vo.redis.impl.RedisPoolService"/>
+    <bean id="redisPoolService" class="com.taotao.sso.vo.redis.impl.RedisPoolService"/>
     <!--集群版redis;开发环境可以只使用单机版,所以注释集群版的实现类-->
     <!--<bean id="redisClusterService" class="RedisClusterService"/>-->
 </beans>

@@ -1,26 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>taotao_manage</artifactId>
+        <artifactId>taotao_sso</artifactId>
         <groupId>com.taotao</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>taotao_manager_service</artifactId>
+    <artifactId>taotao_sso_service</artifactId>
     <packaging>war</packaging>
-    <name>taotao_manager_service Maven Webapp</name>
+    <name>taotao_sso_service Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-        <!-- taotao-manage-interface依赖 -->
+        <!-- taotao-sso-interface依赖 -->
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao_manager_interface</artifactId>
+            <artifactId>taotao_sso_interface</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- taotao-manage-mapper依赖 -->
+        <!-- taotao-sso-mapper依赖 -->
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao_manager_mapper</artifactId>
+            <artifactId>taotao_sso_mapper</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- taotao-common依赖 -->
@@ -29,7 +29,6 @@
             <artifactId>taotao_common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
@@ -42,21 +41,19 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
+
         <!-- MySql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+
         <!-- 连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
-        <!-- Jackson Json处理工具包 -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
+
         <!-- dubbo相关 -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -80,16 +77,14 @@
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
+
+        <!-- 加密解密 -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
         </dependency>
-
-
     </dependencies>
     <build>
-        <finalName>taotao_manager_service</finalName>
+        <finalName>taotao_sso_service</finalName>
     </build>
 </project>

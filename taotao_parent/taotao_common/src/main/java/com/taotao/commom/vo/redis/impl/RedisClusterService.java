@@ -1,6 +1,6 @@
-package com.taotao.manage.service.redis.impl;
+package com.taotao.commom.vo.redis.impl;
 
-import com.taotao.manage.service.redis.RedisService;
+import com.taotao.commom.vo.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.JedisCluster;
 

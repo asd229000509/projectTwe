@@ -21,7 +21,26 @@
         <filter-name>encoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--解决rest时put方式提交无法获取表单数据-->
+    <filter>
+        <filter-name>httpPutFormContentFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
+    </filter>
 
+    <filter-mapping>
+        <filter-name>httpPutFormContentFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--解决rest时delete方式提交无法获取表单数据,通过post添加_method参数模拟delete方式-->
+    <filter>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>taotao-manage-web</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

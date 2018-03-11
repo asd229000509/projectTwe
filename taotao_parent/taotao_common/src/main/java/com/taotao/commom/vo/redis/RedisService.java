@@ -1,4 +1,4 @@
-package com.taotao.manage.service.redis;
+package com.taotao.commom.vo.redis;
 
 public interface RedisService {
     //设置

@@ -7,7 +7,7 @@ import com.github.pagehelper.PageInfo;
 import com.taotao.commom.vo.DataGridResult;
 import com.taotao.manage.mapper.ContentMapper;
 import com.taotao.manage.pojo.Content;
-import com.taotao.manage.service.redis.RedisService;
+import com.taotao.commom.vo.redis.RedisService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
