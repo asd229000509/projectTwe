@@ -37,7 +37,7 @@
 
 
     <!--使用zookeeper注册中心-->
-    <!--<dubbo:reference interface="com.taotao.sso.service.UseService"
-                     id="useService" timeout="1000000"/>-->
+    <dubbo:reference interface="com.taotao.sso.service.UserService"
+                     id="useService" timeout="1000000"/>
 
 </beans>

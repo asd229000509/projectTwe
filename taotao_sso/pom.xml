@@ -11,7 +11,7 @@
     <artifactId>taotao_sso</artifactId>
     <packaging>pom</packaging>
 
-    <name>Maven</name>
+    <name>taotao_sso</name>
     <url>http://maven.apache.org/</url>
     <inceptionYear>2001</inceptionYear>
     <modules>
